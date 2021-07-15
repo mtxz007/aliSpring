@@ -1,0 +1,52 @@
+04spring4_hello:
+    控制：指 谁来控制对象 的创建；传统的应用程序的对象的创建是由程序本身控制的。
+    使用spring后，是由spring来创建对象的。 为了实现解耦等
+    反转：正传指程序来创建对象，反转指程序本身不去创建对象，而变为被动接受的对象
+
+    总结：以前对象是由程序本身来创建，使用spring后，程序变为被动接收spring创建好的对象。
+    控制反转----依赖注入（dependency injection）
+    Ioc是一种编程思想。由主动的编程变为被动的接收；
+    Ioc的实现是通过ioc容器来实现的，Ioc容器----BeanFactory
+
+04spring4_ioc3:
+    使用ioc来创建对象有3种方法：
+        1.通过无参的构造方法来创建对象
+            User.java
+            beans.xml
+        2.通过有参的构造方法来创建对象
+            User2.java
+            beans2.xml
+                .xml配置
+                    第一种 根据参数的下标来设置  index="0"
+                    第二种 根据参数名称来设置    name="name"
+                    第三种 根据参数类型来设置    type="java.lang.String"
+        3.通过工厂方法来创建对象
+            静态工厂    UserFactory.java    beans3.xml
+            动态工厂    UserDynamicFactory  beans3.xml
+
+    配置文件讲解：     beans3.xml  &   02spring4_hello\beans.xml
+        1.alias为bean设置别名；可以设置多个别名
+        2.bean的配置
+        3.团队协作通过import来实现
+
+05spring4_di:
+依赖注入DI：
+    1.依赖注入--dependency injection
+        依赖：指bean对象依赖于容器。Bean对象依赖资源
+        注入：指bean对象依赖的资源由容器来设置和装配
+    2.spring注入--构造器注入
+        见ioc创建对象
+    3.*spring注入--setter注入
+        *要求被注入的属性必须有set方法。set方法的方法名由set+属性首字母大写，如果属性是boolean，没有get方法，是is。
+        beans.xml
+            a)常量注入
+            b)bean注入
+            c)数组注入
+            d)List注入
+            e)Map注入
+            f)Set注入
+            g)NUll注入
+            h)Properties注入
+            i)P命名空间注入   需要在头文件中加入xmlns:p="http://www.springframework.org/schema/p"
+            j)C命名空间注入   需要在头文件中加入xmlns:c="http://www.springframework.org/schema/c"  要求有对应的参数的构造方法
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="cn.sxt.vo.Address">
+        <property name="address" value="北京"/>
+    </bean>
+    <bean id="steudnt" class="cn.sxt.vo.Student">
+        <property name="name" value="张三丰"/>       <!--常量注入-->
+
+        <property name="address" ref="address"/>    <!--bean注入-->
+
+        <property name="books">                     <!--数组注入-->
+            <array>
+                <value>傲慢与偏见</value>
+                <value>仲夏夜之梦</value>
+                <value>雾都孤儿</value>
+            </array>
+        </property>
+
+        <property name="hobbies">                   <!--List注入-->
+            <list>
+                <value>羽毛球</value>
+                <value>乒乓球</value>
+                <value>篮球</value>
+                <value>足球</value>
+            </list>
+        </property>
+
+        <property name="cards">                     <!--map的注入-->
+            <map>
+                <entry key="中国银行" value="2121233"/>
+                <entry>
+                    <key>
+                        <value>建设银行</value>
+                    </key>
+                    <value>6453542</value>
+                </entry>
+            </map>
+        </property>
+
+        <property name="games">                      <!--set的注入-->
+            <set>
+                <value>lol</value>
+                <value>dota</value>
+                <value>cs1.6</value>
+                <value>dnf</value>
+            </set>
+        </property>
+
+        <property name="wife">                      <!--null的注入-->
+            <null/>
+        </property>
+
+        <property name="info">                      <!--properties注入-->
+            <props>
+                <prop key="学号">20191112344</prop>
+                <prop key="性别">男</prop>
+                <prop key="姓名">李华</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="user" class="cn.sxt.vo.User" p:name="风清扬" p:age="230"/>   <!--P命名空间注入-->
+    <bean id="u1" class="cn.sxt.vo.User" c:name="nico" c:age="16"/>    <!--C命名空间注入要求有对应的参数的构造方法-->
+
+</beans>
