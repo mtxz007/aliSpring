@@ -50,3 +50,29 @@
             i)P命名空间注入   需要在头文件中加入xmlns:p="http://www.springframework.org/schema/p"
             j)C命名空间注入   需要在头文件中加入xmlns:c="http://www.springframework.org/schema/c"  要求有对应的参数的构造方法
 
+        bean的作用域--Bean scopes(有scope属性来配置bean的作用域)
+            singleton单列 整个容器中只有一个对象实例（默认）
+            prototype原型 每次使用获取bean都产生一个新的对象
+            request 每次请求时创建一个新的对象
+            session 在会话的范围内是一个对象
+            global session 只在portlet下有用，表示application
+            application 在应用范围中的一个对象
+            *注意：在整合struts2和spring时需要将action设为scope="prototype"
+
+Spring--桥梁
+Spring--轻量级，易学，ioc，aop，事务，整合框架等
+Spring--ioc
+Spring--di
+
+06spring4_autowiring:
+    自动装配--简化spring配置文件
+    beans.xml
+        在配置bean时，可以配置bean的autowire属性，用于指定装配类型
+        autowire自动装配(Autowiring modes) 简化spring配置
+            no 不使用（默认）
+            byName 根据名称（set方法名来的）去查找相应的bean，如果有则装配上
+            byType 根据类型进行自动装配 不用管bean的id
+                   但是同一种类型的bean只能有一个（比如不能同时有mysqlDao和oracleDao） 所以建议慎用byType
+            constructor 当通过构造器注入实例化bean时 使用byType的方式装配构造方法
+        可以配置全局的自动装配类型，在头部配置default-autowire
+        推荐不使用自动装配，而使用annotation（后面讲）。

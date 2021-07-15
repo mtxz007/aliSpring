@@ -6,9 +6,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="address" class="cn.sxt.vo.Address">
+    <!--bean的作用域
+        singleton单列 整个容器中只有一个对象实例（默认）
+        prototype原型 每次使用获取bean都产生一个新的对象
+        request 每次请求时创建一个新的对象
+        session 在会话的范围内是一个对象
+        global session 只在portlet下有用，表示application
+        application 在应用范围中的一个对象
+    -->
+    <bean id="address" class="cn.sxt.vo.Address" scope="singleton">
         <property name="address" value="北京"/>
     </bean>
+
     <bean id="steudnt" class="cn.sxt.vo.Student">
         <property name="name" value="张三丰"/>       <!--常量注入-->
 
