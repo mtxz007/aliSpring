@@ -119,3 +119,33 @@ Spring--di
             返回指定的接口，将方法调用指定的调用处理程序的代理类的一个实例。
     5.实现   cn.sxt.dynamicproxy  ProxyInovationHandler.java  Client.java
         一个动态代理一般代理某一类业务 一个动态代理可以代理多个类。
+
+
+09spring4_aop1:
+    1.aop:aspect oriented programming   面向切面编程
+    2.aop在spring中的作用：
+        提供声明式服务（声明式事务）
+        允许用户实现自定义切面
+    3.aop的由来：在不改变原有代码的情况下增加新的功能
+        传统的编程模式：jsp -> Action -> service -> dao
+        Aop的编程模式：横向的编程
+    4.aop的好处：
+        a)使得真实角色处理的业务更加纯粹，不再去关注一些公共的事情
+        b)公共的业务由代理来完成--实现了业务的分工
+        c)公共业务发生扩展时变得更加集中和方便
+    5.名词解释：
+        关注点：增加的某个业务。如日志，安全，缓存，事务等。
+        切面(Aspect)：一个关注点的模块化
+        通知(Advice)：在切面的某个特定的连接点上执行的动作。
+        织入(Weaving)：把切面连接到其它的应用程序类型或者对象上，并创建一个被通知的对象。
+    6.使用spring实现aop
+        a)通过springAPI来实现
+            Log.java--前置通知  AfterLog.java--后置通知 UserServiceImpl.java--目标类   beans.xml--配置文件 Test.java--测试类
+
+
+
+
+
+
+
+
