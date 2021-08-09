@@ -141,7 +141,13 @@ Spring--di
     6.使用spring实现aop
         a)通过springAPI来实现
             Log.java--前置通知  AfterLog.java--后置通知 UserServiceImpl.java--目标类   beans.xml--配置文件 Test.java--测试类
+        spring aop就是将公共的业务(如日志，安全)和领域业务结合。当执行领域业务时将会把公共业务加进来。
+        实现公共业务的重复利用。领域业务更纯粹了。程序员专注于领域业务。其本质还是动态代理。
+        b)通过自定义类来实现     10spring4_aop2
+        c)通过注解来实现
 
+回顾：
+    领域业务----领域模型，支付业务----接入第三方接口----安全检查----身份验证
 
 
 
